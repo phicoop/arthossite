@@ -93,6 +93,13 @@
 
     .next-projects { position: relative; z-index: 3; }
     footer { padding: 80px 20px; text-align: center; background: #000; border-top: 1px solid #333; position: relative; z-index: 3; }
+ 
+  #nature-focus {
+        filter: blur(20px); /* Startwert: Unscharf */
+        transition: filter 0.1s ease-out; /* Macht den Übergang geschmeidig */
+        will-change: filter; /* Optimiert die Performance für Browser */
+    }
+  
   </style>
 </head>
 <body>
@@ -108,10 +115,16 @@
       <p>Der Beginn einer digitalen Reise.</p>
     </div>
   </section>
- <section class="section">
-      <img src="nature.png" class="project-img">
-      <div class="project-overlay"><p>FROM</p><h2><span>N</span>A<span>t</span>U<span>R</span><span>E</span></h2></div>
-    </section>
+
+  <section class="section">
+    <img src="nature.png" class="project-img" id="nature-focus">
+    <div class="project-overlay">
+        <h2><span>N</span>A<span>t</span>U<span>R</span><span>E</span></h2>
+        <p>Strukturelle Eleganz.</p>
+    </div>
+  </section>
+
+  
   <div class="next-projects">
     <section id="collections">
         <h2 style="font-size: 4vw;">Kollektion</h2>
@@ -180,6 +193,40 @@
       tl.to(letters, { opacity: 1, y: 0, rotation: 0, stagger: 0.04, duration: 0.7, ease: "power4.out" })
         .to(p, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
     });
+
+
+    (function() {
+        const natureImg = document.getElementById('nature-focus');
+        
+        if (!natureImg) return; // Sicherheit, falls das Bild nicht geladen wird
+
+        window.addEventListener('scroll', function() {
+            const rect = natureImg.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Berechnung: Wie weit ist das Bild im Sichtfeld?
+            // scrollFraction ist 0 (unten am Rand) bis 1 (oben am Rand)
+            let scrollFraction = (windowHeight - rect.top) / (windowHeight + rect.height);
+            scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
+
+            // LOGIK FÜR DEN FOKUS:
+            // Das Bild wird schärfer, je näher es der Mitte (0.5) kommt.
+            let blurValue;
+            
+            if (scrollFraction < 0.5) {
+                // Phase 1: Von unten kommend -> wird schärfer
+                // (0.0 -> 20px Blur | 0.5 -> 0px Blur)
+                blurValue = 20 - (scrollFraction * 2 * 20);
+            } else {
+                // Phase 2: Nach oben gehend -> wird wieder unscharf
+                // (0.5 -> 0px Blur | 1.0 -> 20px Blur)
+                blurValue = (scrollFraction - 0.5) * 2 * 20;
+            }
+
+            // Den errechneten Wert auf das Bild anwenden
+            natureImg.style.filter = `blur(${Math.max(0, blurValue)}px)`;
+        });
+    })();
   </script>
 </body>
 </html>
