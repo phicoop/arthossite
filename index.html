@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - 4 New Projects</title>
+  <title>Portfolio - Fast Fade Effect</title>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #000;
+      background: url('background.jpeg');
       color: #fff;
       overflow-x: hidden;
     }
@@ -35,57 +35,27 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
+      background: var(--bg);
     }
 
-    /* Fester Hintergrund-Container für nahtlose, nebelartige Übergänge */
-    .background-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
+    #hero { z-index: 2; }
 
     .project-img {
       position: absolute;
-      top: -10%; left: 0;
-      width: 100%; height: 120%;
-      object-fit: cover;
-      opacity: 0;
-      transform: scale(1.15);
-      filter: blur(3px);
-      z-index: 1;
-
-      /* Nahtlose, durchsichtige Ränder – KEINE harten Kanten! */
-      -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 80%);
-      mask-image: radial-gradient(ellipse at center, black 55%, transparent 80%);
-    }
-
-    /* Nebel-Overlay für mystische Atmosphäre */
-    .project-img::after {
-      content: '';
-      position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.8) 100%);
-      opacity: 0.7;
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-    }
-
-    /* Parallax-Bilder pro Section */
-    .parallax-img {
-      position: absolute;
-      top: -10%; left: 0;
-      width: 100%; height: 120%;
       object-fit: cover;
       opacity: 0.5;
-      z-index: 2;
+      z-index: 1;
+    }
 
-      /* Auch hier weiche Ränder für Harmonie */
-      -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 85%);
-      mask-image: radial-gradient(ellipse at center, black 60%, transparent 85%);
+    .header-parallax-img {
+      position: fixed;
+      top: 0;
+      z-index: 0;
+      opacity: 0.7;
+      will-change: transform, opacity;
+      background-image: url('background.jpeg');
     }
 
     .project-overlay {
@@ -95,153 +65,97 @@
       padding: 20px;
     }
 
-    h2 { 
-      font-size: 10vw; 
-      text-transform: uppercase; 
-      line-height: 0.85; 
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-    
-    h2 span { 
-      display: inline-block; 
-      opacity: 0; 
-      transform: translateY(80px) rotate(5deg); 
-    }
-    
-    p { 
-      font-size: 1.2rem; 
-      max-width: 500px; 
-      margin: 0 auto; 
-      opacity: 0; 
-      transform: translateY(20px);
-      font-weight: 300;
-      letter-spacing: 0.05em;
-    }
+    h2 { font-size: 10vw; text-transform: uppercase; line-height: 0.85; margin-bottom: 20px; }
+    h2 span { display: inline-block; opacity: 0; transform: translateY(80px) rotate(5deg); }
+    p { font-size: 1.2rem; max-width: 500px; margin: 0 auto; opacity: 0; transform: translateY(20px); }
 
     #collections {
-      background: #000;
-      padding: 100px 0;
-      text-align: center;
-      position: relative;
-      z-index: 5;
+        position: relative;
+        z-index: 3;
+        background: #1a1a1a;
+        padding: 100px 0;
+        text-align: center;
     }
-
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      padding: 50px;
-      gap: 30px;
-      scrollbar-width: none;
+        display: flex;
+        overflow-x: auto;
+        padding: 50px;
+        gap: 30px;
+        scrollbar-width: none;
     }
-
     .product-card {
-      flex: 0 0 300px;
-      background: #222;
-      padding: 20px;
-      border-radius: 5px;
+        flex: 0 0 300px;
+        background: #222;
+        padding: 20px;
+        border-radius: 5px;
     }
+    .product-img-small { width: 100%; height: 250px; object-fit: cover; }
 
-    .product-img-small { 
-      width: 100%; 
-      height: 250px; 
-      object-fit: cover; 
-    }
-
-    footer { 
-      padding: 80px 20px; 
-      text-align: center; 
-      background: #000; 
-      border-top: 1px solid #333; 
-    }
+    .next-projects { position: relative; z-index: 3; }
+    footer { padding: 80px 20px; text-align: center; background: #000; border-top: 1px solid #333; position: relative; z-index: 3; }
   </style>
 </head>
 <body>
 
-  <!-- Nebelartiger fester Hintergrund -->
-  <div class="background-container">
-    <img src="https://picsum.photos/1920/1080?v=10" class="project-img" data-index="0">
-    <img src="https://picsum.photos/1920/1080?v=20" class="project-img" data-index="1">
-    <img src="https://picsum.photos/1920/1080?v=30" class="project-img" data-index="2">
-    <img src="https://picsum.photos/1920/1080?v=40" class="project-img" data-index="3">
-    <img src="https://picsum.photos/1920/1080?v=50" class="project-img" data-index="4">
-  </div>
-
-  <header class="main-header">
+    <header class="main-header">
     <div class="logo"><img src="emblem.png" alt="emblem" width="150"></div>
   </header>
 
-  <section class="section">
-    <img src="https://picsum.photos/1920/1080?v=10" class="parallax-img">
+  <section class="section" id="hero">
+    <img src="background.jpeg" class="project-img header-parallax-img">
     <div class="project-overlay">
       <h2><span>I</span><span>n</span><span>t</span><span>r</span><span>o</span></h2>
       <p>Der Beginn einer digitalen Reise.</p>
     </div>
   </section>
 
-  <section id="collections">
-    <h2 style="font-size: 4vw;">Kollektion</h2>
-    <div class="carousel">
-      <div class="product-card"><img src="https://picsum.photos/400/500?v=1" class="product-img-small"><h3>Modell A</h3></div>
-      <div class="product-card"><img src="https://picsum.photos/400/500?v=2" class="product-img-small"><h3>Modell B</h3></div>
-      <div class="product-card"><img src="https://picsum.photos/400/500?v=3" class="product-img-small"><h3>Modell C</h3></div>
-    </div>
-  </section>
+  <div class="next-projects">
+    <section id="collections">
+        <h2 style="font-size: 4vw;">Kollektion</h2>
+        <div class="carousel">
+            <div class="product-card"><img src="https://picsum.photos/400/500?v=1" class="product-img-small"><h3>Modell A</h3></div>
+            <div class="product-card"><img src="https://picsum.photos/400/500?v=2" class="product-img-small"><h3>Modell B</h3></div>
+            <div class="product-card"><img src="https://picsum.photos/400/500?v=3" class="product-img-small"><h3>Modell C</h3></div>
+        </div>
+    </section>
 
-  <section class="section">
-    <img src="https://picsum.photos/1920/1080?v=20" class="parallax-img">
-    <div class="project-overlay">
-      <h2><span>A</span><span>r</span><span>c</span><span>h</span></h2>
-      <p>Strukturelle Eleganz in Beton und Glas.</p>
-    </div>
-  </section>
+    <section class="section">
+      <img src="https://picsum.photos/1920/1080?v=20" class="project-img">
+      <div class="project-overlay"><h2><span>A</span><span>r</span><span>c</span><span>h</span></h2><p>Strukturelle Eleganz.</p></div>
+    </section>
+    
+    <section class="section">
+      <img src="background.jpeg" class="project-img">
+      <div class="project-overlay"><h2><span>G</span><span>l</span><span>o</span><span>w</span></h2><p>Lichtstudien.</p></div>
+    </section>
+  </div>
 
-  <section class="section">
-    <img src="https://picsum.photos/1920/1080?v=30" class="parallax-img">
-    <div class="project-overlay">
-      <h2><span>G</span><span>l</span><span>o</span><span>w</span></h2>
-      <p>Lichtstudien in urbanen Nachtlandschaften.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <img src="https://picsum.photos/1920/1080?v=40" class="parallax-img">
-    <div class="project-overlay">
-      <h2><span>V</span><span>o</span><span>i</span><span>d</span></h2>
-      <p>Minimalismus als Antwort auf das Chaos.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <img src="https://picsum.photos/1920/1080?v=50" class="parallax-img">
-    <div class="project-overlay">
-      <h2><span>F</span><span>l</span><span>u</span><span>x</span></h2>
-      <p>Bewegung eingefroren in der Zeit.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Studio Alpha | Creative Direction</p>
-  </footer>
+  <footer><p>© 2026 Studio Alpha</p></footer>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    const projectSections = document.querySelectorAll('.section:not(#collections)');
-    const bgImages = document.querySelectorAll('.background-container .project-img');
+    // Der optimierte 80% Fade-Out Effekt
+    gsap.to(".header-parallax-img", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom 30%", // Endet bei 80% des Scrollwegs der Sektion
+        scrub: true
+      },
+      scale: 2.6,
+      opacity: 0,
+      ease: "none"
+    });
 
-    // Erstes Bild starten
-    gsap.set(bgImages[0], { opacity: 0.7, scale: 1.15, filter: "blur(3px)" });
-
-    projectSections.forEach((section, i) => {
+    document.querySelectorAll('.section').forEach(section => {
       const letters = section.querySelectorAll('h2 span');
       const p = section.querySelector('p');
-      const parallaxImg = section.querySelector('.parallax-img');
+      const img = section.querySelector('.project-img:not(.header-parallax-img)');
 
-      // Parallax
-      if (parallaxImg) {
-        gsap.to(parallaxImg, {
-          yPercent: 15,
+      if (img) {
+        gsap.to(img, {
+          yPercent: 20,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -252,65 +166,17 @@
         });
       }
 
-      // Text-Animation
-      gsap.timeline({
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top 40%",
           toggleActions: "play none none reverse"
         }
-      })
-      .to(letters, { opacity: 1, y: 0, rotation: 0, stagger: 0.04, duration: 0.7, ease: "power4.out" })
-      .to(p, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
-
-      // Nebelartiger Crossfade
-      const currentImg = bgImages[i];
-      const nextImg = bgImages[i + 1];
-
-      if (currentImg) {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-          onUpdate: (self) => {
-            const p = self.progress;
-
-            gsap.to(currentImg, {
-              opacity: 0.7 * (1 - p),
-              scale: 1.15 + 0.08 * p,
-              filter: `blur(${3 + 8 * p}px)`
-            });
-
-            if (nextImg) {
-              gsap.to(nextImg, {
-                opacity: 0.7 * p,
-                scale: 1.23 - 0.08 * p,
-                filter: `blur(${11 - 8 * p}px)`
-              });
-            }
-          }
-        });
-      }
-    });
-
-    // Letztes Bild ausblenden
-    if (bgImages.length > 0) {
-      const lastImg = bgImages[bgImages.length - 1];
-      ScrollTrigger.create({
-        trigger: projectSections[projectSections.length - 1],
-        start: "bottom center",
-        end: "+=600",
-        scrub: true,
-        onUpdate: (self) => {
-          gsap.to(lastImg, {
-            opacity: 0.7 * (1 - self.progress),
-            filter: `blur(${3 + 12 * self.progress}px)`,
-            scale: 1.15 + 0.15 * self.progress
-          });
-        }
       });
-    }
+
+      tl.to(letters, { opacity: 1, y: 0, rotation: 0, stagger: 0.04, duration: 0.7, ease: "power4.out" })
+        .to(p, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+    });
   </script>
 </body>
 </html>
