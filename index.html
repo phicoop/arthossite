@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: url('background.png');
+      background:#11043d;
       color: #fff;
       overflow-x: hidden;
     }
@@ -55,7 +55,7 @@
       z-index: 0;
       opacity: 0.7;
       will-change: transform, opacity;
-      background-image: url('background.png');
+      background-image: url('start-image.png');
     }
 
     .project-overlay {
@@ -69,6 +69,7 @@
     h2 span { display: inline-block; opacity: 0; transform: translateY(80px) rotate(5deg); }
     p { font-size: 1.2rem; max-width: 500px; margin: 0 auto; opacity: 0; transform: translateY(20px); }
 
+    
     #collections {
         position: relative;
         z-index: 3;
@@ -93,12 +94,134 @@
 
     .next-projects { position: relative; z-index: 3; }
     footer { padding: 80px 20px; text-align: center; background: #000; border-top: 1px solid #333; position: relative; z-index: 3; }
- 
-  #nature-focus {
+  /* Deine bestehende Klasse .project-img bleibt wie sie ist. 
+       Wir fügen nur die spezifischen Regeln für das Nature-Bild hinzu: */
+    #nature-focus {
         filter: blur(20px); /* Startwert: Unscharf */
         transition: filter 0.1s ease-out; /* Macht den Übergang geschmeidig */
         will-change: filter; /* Optimiert die Performance für Browser */
     }
+
+    /* Der Container für die Textbox */
+  .custom-textbox {
+    width: 100%;
+    max-width: 500px; /* Breite der Box */
+    min-height: 300px; /* Mindesthöhe */
+    margin: 50px auto;
+    padding: 40px;
+    
+    /* Hintergrundbild einbinden */
+    background-image: url('background.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+    /* Design-Details */
+    border-radius: 30px; /* Abgerundete Ecken wie in deinem Bild */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text-Styling */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+
+  .custom-textbox h1 {
+    margin: 0 0 15px 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .custom-textbox p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.99;
+  }
+  
+
+
+
+
+
+
+
+
+  .uhren-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.uhren-liste {
+    position: relative;
+    width: 380px;
+    height: 300px;   
+    background-size: cover;
+    background-position: center;
+    /* Stark abgerundet wie im Beispiel borderradious:5; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  
+}
+
+.uhr-inhalt {
+    text-align: center;
+    color: white;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    z-index: 5;
+}
+
+.uhr-prefix {
+    display: block;
+    font-size: 2.8rem;
+    margin-bottom: -15px;
+    letter-spacing: -1px;
+}
+
+.uhr-bild {
+    width: 280px;
+    height: auto;
+  
+    /* Erzeugt einen Schatten unter der Uhr für Tiefe */
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.6));
+    transition: all 0.4s ease-in-out;
+}
+
+.uhr-titel {
+    font-size: 1.5rem;
+    margin-top: -10px;
+    letter-spacing: 20px;
+}
+
+/* Pfeile Design */
+.nav-pfeil {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 15px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-pfeil:hover {
+    color: white;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.links { left: 10px; }
+.rechts { right: 10px; }
   
   </style>
 </head>
