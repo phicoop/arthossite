@@ -247,6 +247,51 @@
     </div>
   </section>
 
+
+
+
+    <section class="section">
+      <img src="niagara.png" class="project-img">
+      
+   
+    <div class="custom-textbox">
+      <div class="project-overlay"><h2><span>.</span><span>.</span><span>.</span><span>h</span><span>a</span><span>n</span><span>d</span><span>m</span><span>a</span><span>d</span><span>e</span></h2><p>Strukturelle Eleganz.</p></div>
+
+    <p>Hier kannst du deinen Text einfügen. Das blaue Hintergrundbild wird automatisch an die Größe dieser Box angepasst.</p><br>
+  <h1>EXPERT...</h1>
+  </div>
+    </section>
+
+  <section class="section">
+      <img src="background.jpeg" class="project-img">
+      <div class="project-overlay"></br><h2><span>.</span><span>.</span><span>.</span><span>t</span>&nbsp;<span>o</span>&nbsp;&nbsp;<span>y&nbsp;o&nbsp;u&nbsp;r</span></br></br>
+      
+        
+      <div class="uhren-container">
+          <div class="uhren-liste">
+              
+              <button class="nav-pfeil links" onclick="vorherigeUhr()">&#10094;</button>
+              
+              <div class="uhr-inhalt">
+                  <span class="uhr-prefix"></span>
+                  
+                  <img src="watch.png" id="aktuelle-uhr" class="uhr-bild" >
+                  
+                  <h2 id="uhr-titel" class="uhr-titel"></h2>
+              </div>
+
+              <button class="nav-pfeil rechts" onclick="naechsteUhr()">&#10095;</button>
+              
+          </div>
+      </div>
+
+      
+      <span>w</span><span>&nbsp;r</span><span>&nbsp;i</span><span>&nbsp;s</span><span>&nbsp;t</span></h2>
+      <p></p></div>
+    </section>
+
+  
+
   
   <div class="next-projects">
     <section id="collections">
@@ -269,7 +314,7 @@
     </section>
   </div>
 
-  <footer><p>© 2026 Studio Alpha</p></footer>
+  <footer><p>© 2026 Referance</p></footer>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
@@ -350,6 +395,44 @@
             natureImg.style.filter = `blur(${Math.max(0, blurValue)}px)`;
         });
     })();
+
+
+
+    // Hier deine Bildpfade und Titel eintragen
+    const uhrenDaten = [
+        { bild: "watch.png", titel: "Falcon eye" },
+        { bild: "watch.png", titel: "Pink agate" },
+        { bild: "watch.png", titel: "Tigereye" }
+    ];
+
+    let index = 0;
+
+    function updateAnzeige() {
+        const bildElement = document.getElementById('aktuelle-uhr');
+        const titelElement = document.getElementById('uhr-titel');
+
+        // Sanfter Übergang
+        bildElement.style.opacity = "0";
+        bildElement.style.transform = "scale(0.8)";
+
+        setTimeout(() => {
+            bildElement.src = uhrenDaten[index].bild;
+            titelElement.innerText = uhrenDaten[index].titel;
+            bildElement.style.opacity = "1";
+            bildElement.style.transform = "scale(1)";
+        }, 300);
+    }
+
+    function naechsteUhr() {
+        index = (index + 1) % uhrenDaten.length; // Springt am Ende zu 0
+        updateAnzeige();
+    }
+
+    function vorherigeUhr() {
+        index = (index - 1 + uhrenDaten.length) % uhrenDaten.length; // Springt am Anfang zum letzten
+        updateAnzeige();
+    }
+
   </script>
 </body>
 </html>
