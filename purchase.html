@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Watches Purchase</title>
+  
+  <style>
+    :root { --accent: #ff3e00; --bg: url('background.jpeg'); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background-image: url('background.jpeg');
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      padding: 30px;
+      z-index: 100;
+      mix-blend-mode: difference;
+    }
+
+    /* Bestehende Sektions-Styles */
+    .next-projects { position: relative; z-index: 3; }
+    
+    #collections {
+        position: relative;
+        z-index: 3;
+        background: #1a1a1a;
+        padding: 100px 0;
+        text-align: center;
+    }
+    
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        padding: 50px;
+        gap: 30px;
+        scrollbar-width: none;
+    }
+    
+    .product-card {
+        flex: 0 0 300px;
+        background: #222;
+        padding: 20px;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover { transform: translateY(-10px); }
+    .product-img-small { width: 100%; height: 250px; object-fit: cover; border-radius: 3px; }
+
+    /* --- LUXURY INQUIRY BOX STYLES --- */
+    .luxury-inquiry-box {
+        max-width: 600px;
+        margin: 80px auto;
+        background: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        font-family: 'Inter', -apple-system, sans-serif;
+        position: relative;
+        z-index: 10;
+    }
+
+    .info-bar {
+        background-color: #000;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .form-content { padding: 40px; color: #333; }
+    .divider { border: 0; border-top: 1px solid #eee; margin: 25px 0; }
+
+    .form-group { display: flex; flex-direction: column; margin-bottom: 18px; text-align: left; }
+    .form-group label {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #aaa;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 14px;
+        border: 1px solid #f0f0f0;
+        border-radius: 12px;
+        background-color: #fcfcfc;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    #premium-watches {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: #000;
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgba(0,0,0,0.03);
+    }
+
+    .form-row { display: flex; gap: 15px; }
+    .submit-btn {
+        width: 100%;
+        padding: 18px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover { background-color: #333; transform: translateY(-2px); }
+
+    /* Success Notification Styles */
+    #success-notification {
+        text-align: center;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .success-icon {
+        width: 60px; height: 60px;
+        background: #000; color: #fff;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+    }
+
+    @media (max-width: 500px) { .form-row { flex-direction: column; gap: 0; } }
+  </style>
+</head>
+<body>
+
+<header>
+    <h1>PURCHASE</h1>
+</header>
+
+    <section id="inquiry-section">
+        <div class="luxury-inquiry-box">
+            <div class="info-bar">
+                <p></p>
+            </div>
+
+            <div class="form-content" id="form-wrapper">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="premium-watches">Choose your model</label>
+                        <select id="premium-watches" name="selected-brand" required>
+                            <option value="" disabled selected>...</option>
+                            <option value="patek-philippe">Patek Philippe</option>
+                            <option value="audemars-piguet">Audemars Piguet</option>
+                            <option value="vacheron-constantin">Vacheron Constantin</option>
+                            <option value="rolex">Rolex</option>
+                            <option value="omega">Omega</option>
+                            <option value="cartier">Cartier</option>
+                            <option value="iwc">IWC Schaffhausen</option>
+                            <option value="jaeger-lecoultre">Jaeger-LeCoultre</option>
+                            <option value="richard-mille">Richard Mille</option>
+                            <option value="hublot">Hublot</option>
+                            <option value="zenith">Zenith</option>
+                            <option value="panerai">Panerai</option>
+                            <option value="a-lange-soehne">A. Lange & Söhne</option>
+                            <option value="glashuette-original">Glashütte Original</option>
+                            <option value="nomos">Nomos Glashütte</option>
+                            <option value="breitling">Breitling</option>
+                            <option value="tudor">Tudor</option>
+                            <option value="tag-heuer">TAG Heuer</option>
+                            <option value="grand-seiko">Grand Seiko</option>
+                            <option value="longines">Longines</option>
+                        </select>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+41 00 000 00 00">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Direct message</label>
+                        <textarea id="message" rows="4" placeholder="You may articulate your order here / pose your question..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+
+                <div id="success-notification">
+                    <div class="success-icon">✓</div>
+                    <h3>Message Sent</h3>
+                    <p style="margin-top: 15px; line-height: 1.5; color: #666;">
+                        Thank you for your inquiry. Our team will get in touch with you within <strong>3 working days</strong>.
+                    </p>
+                    <button onclick="location.reload()" class="submit-btn" style="background:#f0f0f0; color:#000; margin-top:20px; width:auto; padding:10px 30px;">New Inquiry</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Form Submission Logic
+    const contactForm = document.getElementById('contact-form');
+    const successNote = document.getElementById('success-notification');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simuliere Sendevorgang
+        contactForm.style.display = 'none';
+        successNote.style.display = 'block';
+        
+        // Scrolle sanft zum Anfang der Box
+        document.querySelector('.luxury-inquiry-box').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
