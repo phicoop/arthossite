@@ -1,92 +1,219 @@
-<!--<!DOCTYPE html>
-<div class="language-switcher">
-    <label for="language-select">Select Language:</label>
-    <select id="language-select">
-       <option value="fa">فارسی (Farsi)</option>
-        <option value="en">English</option>
-        <option value="fr">Français (French)</option>
-        <option value="de">Deutsch (German)</option>
-        <option value="it">Italiano (Italian)</option>
-    </select>
-</div>
-<html lang="fa">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="Ekthiari's.css"> </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Dial Catalog | Raster View</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37; /* Gold/Brass tone */
+            --bg: #ffffff;
+            --light-gray: #f4f4f4;
+            --stone: #7f8c8d;
+            --organic: #556b2f;
+            --fyi: #483d8b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('start-image.png');
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header { text-align: center; margin-bottom: 30px; }
+
+        /* --- RASTER OVERVIEW SECTION --- */
+        .raster-container {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .raster-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f8d929;
+            margin-bottom: 15px;
+        }
+
+        .raster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px;
+            background: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .raster-item {
+            aspect-ratio: 1/1;
+            background: #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 1px solid #ccc;
+        }
+
+        .raster-item:hover {
+            transform: scale(1.1);
+            border-color: var(--accent);
+        }
+
+        /* --- CONTROLS --- */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        select {
+            padding: 10px 20px;
+            border: 1px solid #dded05;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        /* --- MAIN CATALOG GRID --- */
+        .dial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dial-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .dial-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .image-box {
+            width: 100%;
+            height: 250px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        .content { padding: 20px; }
+
+        .category-pill {
+            font-size: 0.65rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .stone { background: var(--stone); }
+        .organic { background: var(--organic); }
+        .fyi { background: var(--fyi); }
+
+        .price { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
+
+        .hidden { display: none; }
+    </style>
 </head>
 <body>
 
-  
-   <aside class="sidenav"> <div class="logo">
-            <a href="#">My Brand</a>
-        </div>
-        <nav>
-            <ul>
-                <a href="javascript:void(0)" class = "closebtn"onclick="closeNav()">&times;</a>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </aside>
+<header>
+    <h1>The Dial Collection</h1>
+</header>
 
+<section class="raster-container">
+    <div class="raster-title">Quick Overview</div>
+    <div class="raster-grid">
+        <div class="raster-item" title="Stone Dial 1"></div>
+        <div class="raster-item" title="Stone Dial 2"></div>
+        <div class="raster-item" title="Organic Dial 1"></div>
+        <div class="raster-item" title="Organic Dial 2"></div>
+        <div class="raster-item" title="FYI Concept"></div>
+        <div class="raster-item" title="Stone Dial 3"></div>
+        <div class="raster-item" title="Organic Dial 3"></div>
+        <div class="raster-item" title="FYI Concept 2"></div>
+    </div>
+</section>
 
-
-    <h1>Welcome to My Website</h1>
-    <p>This is the home page.</p>
-    <nav>
-        <ul>
-            <li><a href="deeporbit.html">deeporbit</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="Ekthiari's.html">M A I N</a></li>
-            <li><a href="#">pinkpouder</a></li>
-            <li><a href="#">golden rain</a></li>
-            <li><a href="#">french lavender</a></li>
-            <li><a href="#">ametist</a></li>
-            <li><a href="#">antarctic horse</a></li>
-            <li><a href="#">medinian evening</a></li>
-        </ul>
-    </nav>
+<div class="controls">
+    <select id="catFilter" onchange="applyFilter()">
+        <option value="all">All Styles</option>
+        <option value="stone">Stone</option>
+        <option value="organic">Organic</option>
+        <option value="fyi">FYI</option>
+    </select>
     
-   
-     <main class="content"> <h1>Welcome to My Website</h1>
-         
-            <h2>moods:</h2><img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            <img src="set.jpg" alt=" mode1" width = "140" height=" 140">
-            
-    </main>
-</body>
+    <select id="priceSort" onchange="applySort()">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+    </select>
+</div>
 
-</html>--> <p>all your dials</p>
+<div class="dial-grid" id="mainGrid">
+    <div class="dial-card" data-cat="stone" data-price="150">
+        <div class="image-box">LAPIS IMAGE</div>
+        <div class="content">
+            <span class="category-pill stone">Stone</span>
+            <h3>Royal Lapis</h3>
+            <p class="price">$150</p>
+        </div>
+    </div>
+
+    <div class="dial-card" data-cat="organic" data-price="120">
+        <div class="image-box">OAK IMAGE</div>
+        <div class="content">
+            <span class="category-pill organic">Organic</span>
+            <h3>Aged English Oak</h3>
+            <p class="price">$120</p>
+        </div>
+    </div>
+
+    <div class="dial-card" data-cat="fyi" data-price="210">
+        <div class="image-box">METEORITE IMAGE</div>
+        <div class="content">
+            <span class="category-pill fyi">FYI</span>
+            <h3>Space-Born Meteor</h3>
+            <p class="price">$210</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function applyFilter() {
+        const val = document.getElementById('catFilter').value;
+        const cards = document.querySelectorAll('.dial-card');
+        cards.forEach(c => {
+            (val === 'all' || c.dataset.cat === val) ? c.classList.remove('hidden') : c.classList.add('hidden');
+        });
+    }
+
+    function applySort() {
+        const val = document.getElementById('priceSort').value;
+        const grid = document.getElementById('mainGrid');
+        const cards = Array.from(grid.querySelectorAll('.dial-card'));
+        if (val === 'default') return;
+
+        cards.sort((a, b) => {
+            return val === 'low' ? a.dataset.price - b.dataset.price : b.dataset.price - a.dataset.price;
+        });
+        cards.forEach(c => grid.appendChild(c));
+    }
+</script>
+
+</body>
+</html>
