@@ -26,7 +26,6 @@
       mix-blend-mode: difference;
     }
 
-    /* Bestehende Sektions-Styles */
     .next-projects { position: relative; z-index: 3; }
     
     #collections {
@@ -158,99 +157,105 @@
     <h1>PURCHASE</h1>
 </header>
 
-    <section id="inquiry-section">
-        <div class="luxury-inquiry-box">
-            <div class="info-bar">
-                <p></p>
-            </div>
+<section id="inquiry-section">
+    <div class="luxury-inquiry-box">
+        <div class="info-bar">
+            <p></p>
+        </div>
 
-            <div class="form-content" id="form-wrapper">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="premium-watches">Choose your model</label>
-                        <select id="premium-watches" name="selected-brand" required>
-                            <option value="" disabled selected>...</option>
-                            <option value="patek-philippe">Patek Philippe</option>
-                            <option value="audemars-piguet">Audemars Piguet</option>
-                            <option value="vacheron-constantin">Vacheron Constantin</option>
-                            <option value="rolex">Rolex</option>
-                            <option value="omega">Omega</option>
-                            <option value="cartier">Cartier</option>
-                            <option value="iwc">IWC Schaffhausen</option>
-                            <option value="jaeger-lecoultre">Jaeger-LeCoultre</option>
-                            <option value="richard-mille">Richard Mille</option>
-                            <option value="hublot">Hublot</option>
-                            <option value="zenith">Zenith</option>
-                            <option value="panerai">Panerai</option>
-                            <option value="a-lange-soehne">A. Lange & Söhne</option>
-                            <option value="glashuette-original">Glashütte Original</option>
-                            <option value="nomos">Nomos Glashütte</option>
-                            <option value="breitling">Breitling</option>
-                            <option value="tudor">Tudor</option>
-                            <option value="tag-heuer">TAG Heuer</option>
-                            <option value="grand-seiko">Grand Seiko</option>
-                            <option value="longines">Longines</option>
-                        </select>
-                    </div>
-
-                    <hr class="divider">
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" required placeholder="John">
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" required placeholder="Doe">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required placeholder="john@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="+41 00 000 00 00">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Direct message</label>
-                        <textarea id="message" rows="4" placeholder="You may articulate your order here / pose your question..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Inquiry</button>
-                </form>
-
-                <div id="success-notification">
-                    <div class="success-icon">✓</div>
-                    <h3>Message Sent</h3>
-                    <p style="margin-top: 15px; line-height: 1.5; color: #666;">
-                        Thank you for your inquiry. Our team will get in touch with you within <strong>3 working days</strong>.
-                    </p>
-                    <button onclick="location.reload()" class="submit-btn" style="background:#f0f0f0; color:#000; margin-top:20px; width:auto; padding:10px 30px;">New Inquiry</button>
+        <div class="form-content" id="form-wrapper">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="premium-watches">Choose your model</label>
+                    <select id="premium-watches" name="selected-brand" required>
+                        <option value="" disabled selected>...</option>
+                        <option value="patek-philippe">Patek Philippe</option>
+                        <option value="audemars-piguet">Audemars Piguet</option>
+                        <option value="vacheron-constantin">Vacheron Constantin</option>
+                        <option value="rolex">Rolex</option>
+                        <option value="omega">Omega</option>
+                        <option value="cartier">Cartier</option>
+                        <option value="iwc">IWC Schaffhausen</option>
+                        <option value="jaeger-lecoultre">Jaeger-LeCoultre</option>
+                        <option value="richard-mille">Richard Mille</option>
+                        <option value="hublot">Hublot</option>
+                        <option value="zenith">Zenith</option>
+                        <option value="panerai">Panerai</option>
+                        <option value="a-lange-soehne">A. Lange & Söhne</option>
+                        <option value="glashuette-original">Glashütte Original</option>
+                        <option value="nomos">Nomos Glashütte</option>
+                        <option value="breitling">Breitling</option>
+                        <option value="tudor">Tudor</option>
+                        <option value="tag-heuer">TAG Heuer</option>
+                        <option value="grand-seiko">Grand Seiko</option>
+                        <option value="longines">Longines</option>
+                    </select>
                 </div>
+
+                <hr class="divider">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" required placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+41 00 000 00 00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Direct message</label>
+                    <textarea id="message" rows="4" placeholder="You may articulate your order here / pose your question..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+
+            <div id="success-notification">
+                <div class="success-icon">✓</div>
+                <h3>Message Sent</h3>
+                <p style="margin-top: 15px; line-height: 1.5; color: #666;">
+                    Thank you for your inquiry. Our team will get in touch with you within <strong>3 working days</strong>.
+                </p>
+                <button onclick="location.reload()" class="submit-btn" style="background:#f0f0f0; color:#000; margin-top:20px; width:auto; padding:10px 30px;">New Inquiry</button>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <script>
-    // Form Submission Logic
     const contactForm = document.getElementById('contact-form');
     const successNote = document.getElementById('success-notification');
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // LOGIC: Check if at least one contact method is provided
+        const emailField = document.getElementById('email').value.trim();
+        const phoneField = document.getElementById('phone').value.trim();
+
+        if (emailField === "" && phoneField === "") {
+            alert("Please provide either an email address or a phone number so we can reach you.");
+            return; // Stops the form from sending
+        }
         
-        // Simuliere Sendevorgang
+        // Hide form and show success
         contactForm.style.display = 'none';
         successNote.style.display = 'block';
         
-        // Scrolle sanft zum Anfang der Box
         document.querySelector('.luxury-inquiry-box').scrollIntoView({ behavior: 'smooth' });
     });
 </script>
