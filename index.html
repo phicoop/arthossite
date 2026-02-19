@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Fast Fade Effect</title>
@@ -19,13 +20,6 @@
       overflow-x: hidden;
     }
 
-    header {
-      position: fixed;
-      top: 0; width: 100%;
-      padding: 30px;
-      z-index: 100;
-      mix-blend-mode: difference;
-    }
 
     .section {
       min-height: 100vh;
@@ -230,20 +224,443 @@
 
 .links { left: 10px; }
 .rechts { right: 10px; }
-  
+  /* Grundlegende Zurücksetzung und Schriftart */
+body {
+    font-family: 'Century Gothic', sans-serif;; /* Eine klassische, elegante Schriftart */
+    margin: 0;
+    padding: 0;
+    color: #c8c7c7; /* Dunkle, edle Textfarbe */
+   
+}
+
+/* --- HEADER / NAVIGATION --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+   
+    border-bottom: 1px solid #999797; /* Feine Trennlinie */
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative; /* Wichtig für die Positionierung des Mega-Menüs */
+}
+
+nav ul li a, .user-actions a {
+    text-decoration: none;
+    color: #b1acac;
+    margin: 0 15px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    display: block; /* Ermöglicht das Padding und die Klickfläche */
+    padding: 5px 0;
+}
+
+nav ul li a:hover, .user-actions a:hover {
+    color: #e2d6d6;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    height: 80vh; /* Höhe des sichtbaren Bereichs */
+    background: url('placeholder-watch.jpg') no-repeat center center/cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Weißer Text auf Bild */
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: px;
+    font-weight: normal;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    padding: 30px 5%;
+    background-color: #333;
+    color: #aaa;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* --- MEGA-MENÜ STYLING --- */
+.has-mega-menu {
+    position: relative; 
+}
+
+.mega-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100vw; 
+    transform: translateX(-50vw); 
+    margin-left: 50%; 
+    background-color:  rgba(255, 250, 250, 1);;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+    padding: 30px 0;
+}
+
+.has-mega-menu:hover .mega-menu {
+    display: block; 
+}
+
+.mega-menu-content {
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex; 
+    align-items: center;
+}
+
+.product-scroll-container {
+    flex-grow: 1; 
+    overflow-x: scroll; 
+    white-space: nowrap; 
+    padding: 10px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.product-scroll-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.product-gallery {
+    display: inline-flex; 
+}
+
+.product-card {
+    display: block;
+    width: 250px; 
+    min-width: 250px; 
+    margin: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover {
+    opacity: 0.8;
+}
+
+.product-image {
+    width: 250px;
+    height: 180px;
+    background-color: #eee; 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.product-series {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.nav-arrow {
+    font-size: 2em;
+    color: #333;
+    cursor: pointer;
+    padding: 0 15px;
+    user-select: none; 
+    line-height: 1; 
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+/* --- SPRACHAUSWAHL STYLING (Hinzugefügt in der letzten Runde) --- */
+.right-actions {
+    display: flex;
+    align-items: center;
+}
+
+.language-switcher {
+    position: relative;
+    margin-left: 20px; 
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.current-lang {
+    font-weight: bold;
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    display: inline-block;
+}
+
+.lang-list {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    right: 0;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    min-width: 150px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 101; 
+}
+
+.language-switcher:hover .lang-list {
+    display: block;
+}
+
+.lang-list li a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 15px;
+    display: block;
+    text-align: right;
+    text-transform: none;
+}
+
+.lang-list li a:hover, .lang-list li.active a {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+/* =================================================== */
+/* --- NEUE ÄNDERUNGEN: PRODUKT-SIDEBAR UND SLIDER --- */
+/* =================================================== */
+
+/* Sidebar Positionierung */
+.product-sidebar {
+    width: 250px; /* Breite der Sidebar */
+    height: 100vh; /* Volle Höhe */
+    position: fixed; /* Fest an einer Stelle (z.B. rechts oder links) */
+    top: 0;
+    right: 0;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    overflow: hidden; /* Wichtig, um nur das aktuelle Bild zu zeigen */
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px; /* Höhe des sichtbaren Bildbereichs */
+}
+
+/* Bilder-Leiste (Der Track, der sich bewegt) */
+.slider-track {
+    display: flex; /* Alle Bilder nebeneinander */
+    transition: transform 0.3s ease-in-out; /* Sanfte Verschiebung */
+    /* Der Track muss so breit sein wie alle Bilder zusammen */
+    width: 1000%; /* Beispiel: 10 Bilder * 100% */
+}
+
+/* Einzelnes Bild (Slide) */
+.slide {
+    min-width: 100%; /* Jede Slide füllt den .slider-container */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Bildhöhe begrenzen */
+    object-fit: contain;
+}
+
+/* Pfeil-Buttons */
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-button { left: 5px; }
+.next-button { right: 5px; }
+
+.page-section1 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 300px;
+    text-align: center;
+    flex-wrap: wrap;
+    background-image: url('mockbild1.png'); /* Wichtig, um das Hintergrundbild von body zu zeigen */
+}
+.page-section2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 50px;
+    text-align: center;
+    flex-wrap: wrap;
+    background-image: url('mockbackground2.png'); /* Wichtig, um das Hintergrundbild von body zu zeigen */
+}
+/* CONTAINER für das Video */
+.video-background {
+    position: fixed; /* Fixiert es im Browserfenster */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Verhindert Scrollbalken durch Überlauf */
+    z-index: -100; /* Legt das Video in den Hintergrund (sehr niedriger Wert) */
+}
+
+/* Das tatsächliche IFRAME */
+.video-background iframe {
+    /* Diese Skalierung sorgt dafür, dass das Video immer das gesamte Element ausfüllt */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:max-content;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Deaktiviert Klicks auf das Video selbst */
+}
+
+
+/* Optional: Stil für den Inhalt, der über dem Video liegt */
+.content {
+    position: relative;
+    z-index: 1; /* Stellt sicher, dass der Inhalt VOR dem Video liegt */
+    color: white; /* Helle Textfarbe für besseren Kontrast */
+    padding: 0px;
+}
+
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* 40% schwarze Überlagerung */
+    z-index: 1; /* Muss über dem Video, aber unter dem Inhalt liegen */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
 
-    <header class="main-header">
-    <div class="logo"><img src="emblem.png" alt="emblem" width="150"></div>
-  </header>
+
+      <header class="main-header">
+        <div class="logo"><img src="emblem.png" alt="emblem" width="150"></div>
+        <nav>
+            <ul>
+                <li><a href="Geschichte.html">Our dials</a></li>
+                <li><a href="Entdecken.html">The concept</a></li>
+                <li><a href="Händler.html">Our story</a></li>
+                <li><a href="Händler.html">Faq</a></li>
+            </ul>
+                </nav>
+              </header>
+              </body>
 
   <section class="section" id="hero">
     <img src="start-image.png" class="project-img header-parallax-img">
     <div class="project-overlay">
       <h2><span>B</span>&nbsp;<span>O</span>&nbsp;<span>L</span>&nbsp;<span>D</span>&nbsp;&nbsp;<span>D</span>&nbsp;<span>I</span>&nbsp;<span>A</span>&nbsp;<span>L</span>&nbsp;<span>S</span>&nbsp;</h2>
-      <p>Der Beginn einer digitalen Reise.</p>
+      <p>Wear unique watches</p>
     </div>
   </section>
 
@@ -345,6 +762,38 @@
   <footer><p>© 2026 Referance</p></footer>
 
   <script>
+    // Warte, bis das gesamte HTML-Dokument geladen ist, bevor der Code ausgeführt wird.
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Wähle den Container, der gescrollt werden soll, basierend auf der CSS-Klasse.
+    const scrollContainer = document.querySelector('.product-scroll-container');
+    
+    // Wähle die Pfeil-Elemente (Links und Rechts).
+    const arrowLeft = document.querySelector('.nav-arrow.left');
+    const arrowRight = document.querySelector('.nav-arrow.right');
+
+    // Definiere die Scroll-Distanz. 
+    const scrollDistance = 300; 
+
+    // --- Ereignishandler für den RECHTS-Pfeil ---
+    arrowRight.addEventListener('click', function() {
+        // Scrolle den Container um 300 Pixel nach rechts.
+        scrollContainer.scrollBy({
+            left: scrollDistance,
+            behavior: 'smooth' // Sanfte Animation beim Scrollen.
+        });
+    });
+
+    // --- Ereignishandler für den LINKS-Pfeil ---
+    arrowLeft.addEventListener('click', function() {
+        // Scrolle den Container um 300 Pixel nach links (negativer Wert).
+        scrollContainer.scrollBy({
+            left: -scrollDistance,
+            behavior: 'smooth'
+        });
+    });
+});
+  
     gsap.registerPlugin(ScrollTrigger);
 
     // Der optimierte 80% Fade-Out Effekt
