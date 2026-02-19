@@ -181,7 +181,7 @@
 .uhr-prefix {
     display: block;
     font-size: 2.8rem;
-    margin-bottom: -15px;
+    margin-bottom: -30px;
     letter-spacing: -1px;
 }
 
@@ -198,6 +198,14 @@
     font-size: 1.5rem;
     margin-top: -10px;
     letter-spacing: 20px;
+}
+.uhr-untertitel {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 7px;
+    opacity: 0.7;
+    line-height: 1.8;    /* Vergrößert den Abstand zwischen den Zeilen (1.2 - 1.8 ist meist ideal) */
+    margin-top: 15px;   /* Vergrößert den Abstand nach oben zum Haupttitel */
 }
 
 /* Pfeile Design */
@@ -279,7 +287,8 @@
                   <img src="phoenix.png" id="aktuelle-uhr" class="uhr-bild" >
                   
                   <h2 id="uhr-titel" class="uhr-titel"></h2>
-              </div>
+                  <div id="uhr-untertitel" class="uhr-untertitel"></div>
+                </div>
 
               <button class="nav-pfeil rechts" onclick="naechsteUhr()">&#10095;</button>
               
@@ -418,12 +427,13 @@
 
 
     // Hier deine Bildpfade und Titel eintragen
-    const uhrenDaten = [
-        { bild: "empty.png", titel: "Falcon eye" },
-        { bild: "empty.png", titel: "Pink agate" },
-        { bild: "empty.png", titel: "Tigereye" },
-         { bild: "empty.png", titel: "Aventurine" },
-        { bild: "empty.png", titel: "Pheonix lapis lazuli" }
+   const uhrenDaten = [
+        { bild: "empty.png", titel: "Malachite", untertitel: "These malachite watch dials stand out with their rich green tones and naturally formed veining,  The stone’s organic patterns catch the eye and give the watch a refined, distinctive character. malachite adds a bold yet timeless elegance. Each dial becomes a striking visual signature." },
+        { bild: "empty.png", titel: "Aventurine", untertitel: "These aventurine watch dials captivate with their deep, rich tones and delicate sparkling inclusions. The stone’s subtle shimmer adds depth and a refined sense of texture to the dial. " },
+        { bild: "empty.png", titel: "Tigereye", untertitel: "These tiger’s eye watch dials are distinguished by their warm golden-brown hues and shimmering, striated patterns. The stone’s natural chatoyancy creates a subtle play of light that enhances the depth of the dial." },
+        { bild: "empty.png", titel: "Falcon eye", untertitel: "Blue Quartz Variant" },
+        { bild: "empty.png", titel: "Pink agate", untertitel: "Natural Banded Stone" },         
+        { bild: "empty.png", titel: "Pheonix lapis lazuli", untertitel: "Celestial Blue" }
     ];
 
     let index = 0;
@@ -431,17 +441,21 @@
     function updateAnzeige() {
         const bildElement = document.getElementById('aktuelle-uhr');
         const titelElement = document.getElementById('uhr-titel');
+        const untertitelElement = document.getElementById('uhr-untertitel');
 
         // Sanfter Übergang
         bildElement.style.opacity = "0";
         bildElement.style.transform = "scale(0.8)";
-
+        untertitelElement.style.opacity = "0";
+        
         setTimeout(() => {
             bildElement.src = uhrenDaten[index].bild;
             titelElement.innerText = uhrenDaten[index].titel;
+            untertitelElement.innerText = uhrenDaten[index].untertitel;
             bildElement.style.opacity = "1";
             bildElement.style.transform = "scale(1)";
-        }, 300);
+            untertitelElement.style.opacity = "0.7";
+          }, 300);
     }
 
     function naechsteUhr() {
