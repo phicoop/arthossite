@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Fast Fade Effect</title>
@@ -14,12 +13,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
       background:#11043d;
       color: #fff;
       overflow-x: hidden;
+      line-height: 1.5;
     }
-
 
     .section {
       min-height: 100vh;
@@ -30,9 +29,8 @@
       position: relative;
       overflow: hidden;
       background: var(--bg);
+      padding: 40px 20px;
     }
-
-    #hero { z-index: 2; }
 
     .project-img {
       position: absolute;
@@ -56,737 +54,194 @@
       position: relative;
       z-index: 10;
       text-align: center;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h2 { font-size: 8vw; text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
+    h2 span { display: inline-block; opacity: 0; transform: translateY(40px); }
+    p { font-size: 1.1rem; max-width: 500px; margin: 0 auto; opacity: 0; transform: translateY(20px); }
+
+    /* HEADER */
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      position: relative;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { text-decoration: none; color: #ccc; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* UHREN SLIDER */
+    .uhren-container { width: 100%; display: flex; justify-content: center; }
+    
+    .uhren-liste {
+      position: relative;
+      width: 100%;
+      max-width: 500px; /* Begrenzung für Desktop */
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 20px;
     }
 
-    h2 { font-size: 10vw; text-transform: uppercase; line-height: 0.85; margin-bottom: 20px; }
-    h2 span { display: inline-block; opacity: 0; transform: translateY(80px) rotate(5deg); }
-    p { font-size: 1.2rem; max-width: 500px; margin: 0 auto; opacity: 0; transform: translateY(20px); }
-
+    .uhr-inhalt { text-align: center; color: white; z-index: 5; width: 100%; }
+    .uhr-bild { width: 100%; max-width: 250px; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); transition: all 0.4s ease; }
     
-    #collections {
-        position: relative;
-        z-index: 3;
-        background: #1a1a1a;
-        padding: 100px 0;
-        text-align: center;
-    }
-    .carousel {
-        display: flex;
-        overflow-x: auto;
-        padding: 50px;
-        gap: 30px;
-        scrollbar-width: none;
-    }
-    .product-card {
-        flex: 0 0 300px;
-        background: #222;
-        padding: 20px;
-        border-radius: 5px;
-    }
-    .product-img-small { width: 100%; height: 250px; object-fit: cover; }
-
-    .next-projects { position: relative; z-index: 3; }
-    footer { padding: 80px 20px; text-align: center; background: #000; border-top: 1px solid #333; position: relative; z-index: 3; }
-  /* Deine bestehende Klasse .project-img bleibt wie sie ist. 
-       Wir fügen nur die spezifischen Regeln für das Nature-Bild hinzu: */
-    #nature-focus {
-        filter: blur(20px); /* Startwert: Unscharf */
-        transition: filter 0.1s ease-out; /* Macht den Übergang geschmeidig */
-        will-change: filter; /* Optimiert die Performance für Browser */
+    .uhr-titel { font-size: 1.5rem; margin-top: 15px; letter-spacing: 10px; text-transform: uppercase; }
+    
+    .uhr-untertitel {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      line-height: 1.8;
+      margin-top: 20px;
+      padding: 0 10px;
     }
 
-    /* Der Container für die Textbox */
-  .custom-textbox {
-    width: 100%;
-    max-width: 500px; /* Breite der Box */
-    min-height: 300px; /* Mindesthöhe */
-    margin: 50px auto;
-    padding: 40px;
-    
-    /* Hintergrundbild einbinden */
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    
-    /* Design-Details */
-    border-radius: 30px; /* Abgerundete Ecken wie in deinem Bild */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    /* Text-Styling */
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-  }
-
-  .custom-textbox h1 {
-    margin: 0 0 15px 0;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .custom-textbox p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    opacity: 0.99;
-  }
-  
-
-
-
-
-
-
-
-
-  .uhren-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-}
-
-.uhren-liste {
-    position: relative;
-    width: 380px;
-    height: 370px;   
-    background-size: cover;
-    background-position: center;
-    /* Stark abgerundet wie im Beispiel borderradious:5; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  
-}
-
-.uhr-inhalt {
-    text-align: center;
-    color: white;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    z-index: 5;
-}
-
-.uhr-prefix {
-    display: block;
-    font-size: 2.8rem;
-    margin-bottom: -30px;
-    letter-spacing: -1px;
-}
-
-.uhr-bild {
-    width: 280px;
-    height: auto;
-  
-    /* Erzeugt einen Schatten unter der Uhr für Tiefe */
-    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.6));
-    transition: all 0.4s ease-in-out;
-}
-
-.uhr-titel {
-    font-size: 1.5rem;
-    margin-top: -10px;
-    letter-spacing: 20px;
-}
-.uhr-untertitel {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 7px;
-    opacity: 0.7;
-    line-height: 1.8;    /* Vergrößert den Abstand zwischen den Zeilen (1.2 - 1.8 ist meist ideal) */
-    margin-top: 15px;   /* Vergrößert den Abstand nach oben zum Haupttitel */
-}
-
-/* Pfeile Design */
-.nav-pfeil {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 10;
-    padding: 15px;
-    transition: color 0.3s, transform 0.2s;
-}
-
-.nav-pfeil:hover {
-    color: white;
-    transform: translateY(-50%) scale(1.2);
-}
-
-.links { left: 10px; }
-.rechts { right: 10px; }
-  /* Grundlegende Zurücksetzung und Schriftart */
-body {
-    font-family: 'Century Gothic', sans-serif;; /* Eine klassische, elegante Schriftart */
-    margin: 0;
-    padding: 0;
-    color: #c8c7c7; /* Dunkle, edle Textfarbe */
-   
-}
-
-/* --- HEADER / NAVIGATION --- */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-   
-    border-bottom: 1px solid #999797; /* Feine Trennlinie */
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    letter-spacing: 4px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    position: relative; /* Wichtig für die Positionierung des Mega-Menüs */
-}
-
-nav ul li a, .user-actions a {
-    text-decoration: none;
-    color: #b1acac;
-    margin: 0 15px;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    display: block; /* Ermöglicht das Padding und die Klickfläche */
-    padding: 5px 0;
-}
-
-nav ul li a:hover, .user-actions a:hover {
-    color: #e2d6d6;
-}
-
-/* --- HERO SECTION --- */
-.hero-section {
-    height: 80vh; /* Höhe des sichtbaren Bereichs */
-    background: url('placeholder-watch.jpg') no-repeat center center/cover; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff; /* Weißer Text auf Bild */
-    text-align: center;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.hero-section h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    letter-spacing: px;
-    font-weight: normal;
-}
-
-.hero-section p {
-    font-size: 1.2em;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #ffffff;
-    color: #333;
-}
-
-/* --- FOOTER --- */
-.main-footer {
-    padding: 30px 5%;
-    background-color: #333;
-    color: #aaa;
-    text-align: center;
-    font-size: 0.8em;
-}
-
-.footer-links a {
-    color: #aaa;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #fff;
-}
-
-/* --- MEGA-MENÜ STYLING --- */
-.has-mega-menu {
-    position: relative; 
-}
-
-.mega-menu {
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    width: 100vw; 
-    transform: translateX(-50vw); 
-    margin-left: 50%; 
-    background-color:  rgba(255, 250, 250, 1);;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 100; 
-    padding: 30px 0;
-}
-
-.has-mega-menu:hover .mega-menu {
-    display: block; 
-}
-
-.mega-menu-content {
-    max-width: 1200px; 
-    margin: 0 auto;
-    display: flex; 
-    align-items: center;
-}
-
-.product-scroll-container {
-    flex-grow: 1; 
-    overflow-x: scroll; 
-    white-space: nowrap; 
-    padding: 10px 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.product-scroll-container::-webkit-scrollbar {
-    display: none; 
-}
-
-.product-gallery {
-    display: inline-flex; 
-}
-
-.product-card {
-    display: block;
-    width: 250px; 
-    min-width: 250px; 
-    margin: 0 15px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    transition: opacity 0.3s;
-}
-
-.product-card:hover {
-    opacity: 0.8;
-}
-
-.product-image {
-    width: 250px;
-    height: 180px;
-    background-color: #eee; 
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 10px;
-}
-
-.product-name {
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-}
-
-.product-series {
-    font-size: 0.8em;
-    color: #888;
-}
-
-.nav-arrow {
-    font-size: 2em;
-    color: #333;
-    cursor: pointer;
-    padding: 0 15px;
-    user-select: none; 
-    line-height: 1; 
-    opacity: 0.6;
-    transition: opacity 0.2s;
-}
-
-.nav-arrow:hover {
-    opacity: 1;
-}
-
-/* --- SPRACHAUSWAHL STYLING (Hinzugefügt in der letzten Runde) --- */
-.right-actions {
-    display: flex;
-    align-items: center;
-}
-
-.language-switcher {
-    position: relative;
-    margin-left: 20px; 
-    cursor: pointer;
-    font-size: 0.9em;
-}
-
-.current-lang {
-    font-weight: bold;
-    color: #000;
-    border: 1px solid #ccc;
-    padding: 5px 8px;
-    display: inline-block;
-}
-
-.lang-list {
-    display: none; 
-    position: absolute;
-    top: 100%;
-    right: 0;
-    list-style: none;
-    padding: 10px 0;
-    margin: 0;
-    background-color: #ffffff;
-    border: 1px solid #eee;
-    min-width: 150px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 101; 
-}
-
-.language-switcher:hover .lang-list {
-    display: block;
-}
-
-.lang-list li a {
-    text-decoration: none;
-    color: #333;
-    padding: 8px 15px;
-    display: block;
-    text-align: right;
-    text-transform: none;
-}
-
-.lang-list li a:hover, .lang-list li.active a {
-    background-color: #f5f5f5;
-    color: #000;
-}
-
-/* =================================================== */
-/* --- NEUE ÄNDERUNGEN: PRODUKT-SIDEBAR UND SLIDER --- */
-/* =================================================== */
-
-/* Sidebar Positionierung */
-.product-sidebar {
-    width: 250px; /* Breite der Sidebar */
-    height: 100vh; /* Volle Höhe */
-    position: fixed; /* Fest an einer Stelle (z.B. rechts oder links) */
-    top: 0;
-    right: 0;
-    background-color: #f4f4f4;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    overflow: hidden; /* Wichtig, um nur das aktuelle Bild zu zeigen */
-}
-
-/* Slider Container */
-.slider-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 300px; /* Höhe des sichtbaren Bildbereichs */
-}
-
-/* Bilder-Leiste (Der Track, der sich bewegt) */
-.slider-track {
-    display: flex; /* Alle Bilder nebeneinander */
-    transition: transform 0.3s ease-in-out; /* Sanfte Verschiebung */
-    /* Der Track muss so breit sein wie alle Bilder zusammen */
-    width: 1000%; /* Beispiel: 10 Bilder * 100% */
-}
-
-/* Einzelnes Bild (Slide) */
-.slide {
-    min-width: 100%; /* Jede Slide füllt den .slider-container */
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    max-height: 200px; /* Bildhöhe begrenzen */
-    object-fit: contain;
-}
-
-/* Pfeil-Buttons */
-.prev-button, .next-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.prev-button { left: 5px; }
-.next-button { right: 5px; }
-
-.page-section1 {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    padding: 300px;
-    text-align: center;
-    flex-wrap: wrap;
-    background-image: url('mockbild1.png'); /* Wichtig, um das Hintergrundbild von body zu zeigen */
-}
-.page-section2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-    padding: 50px;
-    text-align: center;
-    flex-wrap: wrap;
-    background-image: url('mockbackground2.png'); /* Wichtig, um das Hintergrundbild von body zu zeigen */
-}
-/* CONTAINER für das Video */
-.video-background {
-    position: fixed; /* Fixiert es im Browserfenster */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Verhindert Scrollbalken durch Überlauf */
-    z-index: -100; /* Legt das Video in den Hintergrund (sehr niedriger Wert) */
-}
-
-/* Das tatsächliche IFRAME */
-.video-background iframe {
-    /* Diese Skalierung sorgt dafür, dass das Video immer das gesamte Element ausfüllt */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width:max-content;
-    height: 100vh;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* Deaktiviert Klicks auf das Video selbst */
-}
-
-
-/* Optional: Stil für den Inhalt, der über dem Video liegt */
-.content {
-    position: relative;
-    z-index: 1; /* Stellt sicher, dass der Inhalt VOR dem Video liegt */
-    color: white; /* Helle Textfarbe für besseren Kontrast */
-    padding: 0px;
-}
-
-.video-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* 40% schwarze Überlagerung */
-    z-index: 1; /* Muss über dem Video, aber unter dem Inhalt liegen */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .nav-pfeil {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10;
+      padding: 10px;
+    }
+    .links { left: -10px; }
+    .rechts { right: -10px; }
+
+    /* COLLECTIONS CAROUSEL */
+    #collections { background: #1a1a1a; padding: 60px 0; text-align: center; }
+    .carousel { display: flex; overflow-x: auto; padding: 30px; gap: 20px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .product-card { flex: 0 0 280px; background: #222; padding: 15px; border-radius: 10px; scroll-snap-align: center; }
+    .product-img-small { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
+
+    footer { padding: 40px 20px; text-align: center; background: #000; font-size: 0.8rem; opacity: 0.6; }
+
+    /* =================================================== */
+    /* MOBILE OPTIMIERUNGEN (Media Queries) */
+    /* =================================================== */
+
+    @media (max-width: 768px) {
+      .main-header { flex-direction: column; gap: 15px; text-align: center; }
+      nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+      nav ul li a { font-size: 0.7rem; }
+
+      h2 { font-size: 12vw; } /* Etwas größer auf Mobile für Impact */
+      
+      .uhren-liste { min-height: 600px; }
+      .uhr-titel { letter-spacing: 5px; font-size: 1.2rem; }
+      .uhr-untertitel { font-size: 0.85rem; letter-spacing: 1px; line-height: 1.6; }
+      
+      /* Pfeile nach unten verschieben, damit sie nicht über dem Text liegen */
+      .nav-pfeil { top: auto; bottom: -40px; transform: none; }
+      .links { left: 30%; }
+      .rechts { right: 30%; }
+
+      /* Den extremen 300px Padding-Wert korrigieren */
+      .page-section1 { padding: 60px 20px !important; }
+    }
+
+    /* Korrektur für deine spezifischen Sektionen */
+    .page-section1, .page-section2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+      padding: 100px 20px;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
   </style>
 </head>
 <body>
 
-
-      <header class="main-header">
-        <div class="logo"><img src="emblem.png" alt="emblem" width="150"></div>
-        <nav>
-            <ul>
-                <li><a href="Geschichte.html">Our dials</a></li>
-                <li><a href="Entdecken.html">The concept</a></li>
-                <li><a href="Händler.html">Our story</a></li>
-                <li><a href="Händler.html">Faq</a></li>
-            </ul>
-                </nav>
-              </header>
-              </body>
+  <header class="main-header">
+    <div class="logo"><img src="emblem.png" alt="logo" width="120"></div>
+    <nav>
+      <ul>
+        <li><a href="Geschichte.html">Our dials</a></li>
+        <li><a href="Entdecken.html">The concept</a></li>
+        <li><a href="Händler.html">Our story</a></li>
+        <li><a href="Händler.html">Faq</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="section" id="hero">
     <img src="start-image.png" class="project-img header-parallax-img">
     <div class="project-overlay">
-      <h2><span>B</span>&nbsp;<span>O</span>&nbsp;<span>L</span>&nbsp;<span>D</span>&nbsp;&nbsp;<span>D</span>&nbsp;<span>I</span>&nbsp;<span>A</span>&nbsp;<span>L</span>&nbsp;<span>S</span>&nbsp;</h2>
+      <h2><span>B</span><span>O</span><span>L</span><span>D</span> <span>D</span><span>I</span><span>A</span><span>L</span><span>S</span></h2>
       <p>Wear unique watches</p>
     </div>
   </section>
 
-
-
   <section class="section">
-      <img src="background.png" class="project-img">
-      <div class="project-overlay">
-      
-        
+    <img src="background.png" class="project-img">
+    <div class="project-overlay">
       <div class="uhren-container">
-          <div class="uhren-liste">
-              
-              <button class="nav-pfeil links" onclick="vorherigeUhr()">&#10094;</button>
-              
-              <div class="uhr-inhalt">
-                  <span class="uhr-prefix"></span>
-                  
-                  <img src="phoenix.png" id="aktuelle-uhr" class="uhr-bild" >
-                  
-                  <h2 id="uhr-titel" class="uhr-titel"></h2>
-                  <div id="uhr-untertitel" class="uhr-untertitel"></div>
-                </div>
-
-              <button class="nav-pfeil rechts" onclick="naechsteUhr()">&#10095;</button>
-              
+        <div class="uhren-liste">
+          <button class="nav-pfeil links" onclick="vorherigeUhr()">&#10094;</button>
+          <div class="uhr-inhalt">
+            <img src="phoenix.png" id="aktuelle-uhr" class="uhr-bild">
+            <h2 id="uhr-titel" class="uhr-titel">Malachite</h2>
+            <div id="uhr-untertitel" class="uhr-untertitel">Loading description...</div>
           </div>
+          <button class="nav-pfeil rechts" onclick="naechsteUhr()">&#10095;</button>
+        </div>
       </div>
+    </div>
+  </section>
 
-      
-     
-      <p></p></div>
-    </section>
-
-  
-
-  
   <div class="next-projects">
     <section id="collections">
-        <h2 style="font-size: 4vw;">Kollektion</h2>
-        <div class="carousel">
-            <div class="product-card">
-                <a href="Homepage.html">
-                    <img src="https://picsum.photos/400/500?v=1" class="product-img-small">
-                </a>
-                <h3>All Dials</h3>
-            </div>
-
-            <div class="product-card">
-                <a href="purchase.html">
-                    <img src="https://picsum.photos/400/500?v=2" class="product-img-small">
-                </a>
-                <h3>Order</h3>
-            </div>
-
-            <div class="product-card">
-                <a href="#">
-                    <img src="https://picsum.photos/400/500?v=3" class="product-img-small">
-                </a>
-                <h3>FAQ</h3>
-            </div>
+      <h2 style="font-size: 2rem; margin-bottom: 30px;">Kollektion</h2>
+      <div class="carousel">
+        <div class="product-card">
+          <a href="Homepage.html"><img src="https://picsum.photos/400/500?v=1" class="product-img-small"></a>
+          <h3>All Dials</h3>
         </div>
-    </section>
-</div>
-
-    <section class="section">
-      <img src="https://picsum.photos/1920/1080?v=20" class="project-img">
-      <div class="project-overlay"><h2><span>s</span><span>p</span><span>a</span><span>re</span></h2><p>blablabla.</p></div>
-    </section>
-    
-    <section class="section">
-      <img src="background.png" class="project-img">
-      <div class="project-overlay"><h2><span>S</span><span>p</span><span>a</span><span>re</span></h2><p>blublublu.</p></div>
+        <div class="product-card">
+          <a href="purchase.html"><img src="https://picsum.photos/400/500?v=2" class="product-img-small"></a>
+          <h3>Order</h3>
+        </div>
+        <div class="product-card">
+          <a href="#"><img src="https://picsum.photos/400/500?v=3" class="product-img-small"></a>
+          <h3>FAQ</h3>
+        </div>
+      </div>
     </section>
   </div>
 
-  <footer><p>© 2026 Referance</p></footer>
+  <footer><p>© 2026 Reference - BOLD DIALS</p></footer>
 
   <script>
-    // Warte, bis das gesamte HTML-Dokument geladen ist, bevor der Code ausgeführt wird.
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Wähle den Container, der gescrollt werden soll, basierend auf der CSS-Klasse.
-    const scrollContainer = document.querySelector('.product-scroll-container');
-    
-    // Wähle die Pfeil-Elemente (Links und Rechts).
-    const arrowLeft = document.querySelector('.nav-arrow.left');
-    const arrowRight = document.querySelector('.nav-arrow.right');
-
-    // Definiere die Scroll-Distanz. 
-    const scrollDistance = 300; 
-
-    // --- Ereignishandler für den RECHTS-Pfeil ---
-    arrowRight.addEventListener('click', function() {
-        // Scrolle den Container um 300 Pixel nach rechts.
-        scrollContainer.scrollBy({
-            left: scrollDistance,
-            behavior: 'smooth' // Sanfte Animation beim Scrollen.
-        });
-    });
-
-    // --- Ereignishandler für den LINKS-Pfeil ---
-    arrowLeft.addEventListener('click', function() {
-        // Scrolle den Container um 300 Pixel nach links (negativer Wert).
-        scrollContainer.scrollBy({
-            left: -scrollDistance,
-            behavior: 'smooth'
-        });
-    });
-});
-  
     gsap.registerPlugin(ScrollTrigger);
 
-    // Der optimierte 80% Fade-Out Effekt
+    // Hero Animation
     gsap.to(".header-parallax-img", {
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
-        end: "bottom 30%", // Endet bei 80% des Scrollwegs der Sektion
+        end: "bottom 30%",
         scrub: true
       },
-      scale: 2.6,
+      scale: 1.5,
       opacity: 0,
       ease: "none"
     });
 
+    // Section Animations
     document.querySelectorAll('.section').forEach(section => {
       const letters = section.querySelectorAll('h2 span');
       const p = section.querySelector('p');
@@ -794,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (img) {
         gsap.to(img, {
-          yPercent: 20,
+          yPercent: 10,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -808,93 +263,42 @@ document.addEventListener('DOMContentLoaded', function() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "top 40%",
+          start: "top 60%",
           toggleActions: "play none none reverse"
         }
       });
 
-      tl.to(letters, { opacity: 1, y: 0, rotation: 0, stagger: 0.04, duration: 0.7, ease: "power4.out" })
-        .to(p, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+      tl.to(letters, { opacity: 1, y: 0, stagger: 0.05, duration: 0.6, ease: "power2.out" })
+        .to(p, { opacity: 1, y: 0, duration: 0.4 }, "-=0.2");
     });
 
-
-    (function() {
-        const natureImg = document.getElementById('nature-focus');
-        
-        if (!natureImg) return; // Sicherheit, falls das Bild nicht geladen wird
-
-        window.addEventListener('scroll', function() {
-            const rect = natureImg.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            // Berechnung: Wie weit ist das Bild im Sichtfeld?
-            // scrollFraction ist 0 (unten am Rand) bis 1 (oben am Rand)
-            let scrollFraction = (windowHeight - rect.top) / (windowHeight + rect.height);
-            scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
-
-            // LOGIK FÜR DEN FOKUS:
-            // Das Bild wird schärfer, je näher es der Mitte (0.5) kommt.
-            let blurValue;
-            
-            if (scrollFraction < 0.5) {
-                // Phase 1: Von unten kommend -> wird schärfer
-                // (0.0 -> 20px Blur | 0.5 -> 0px Blur)
-                blurValue = 20 - (scrollFraction * 2 * 20);
-            } else {
-                // Phase 2: Nach oben gehend -> wird wieder unscharf
-                // (0.5 -> 0px Blur | 1.0 -> 20px Blur)
-                blurValue = (scrollFraction - 0.5) * 2 * 20;
-            }
-
-            // Den errechneten Wert auf das Bild anwenden
-            natureImg.style.filter = `blur(${Math.max(0, blurValue)}px)`;
-        });
-    })();
-
-
-
-    // Hier deine Bildpfade und Titel eintragen
-   const uhrenDaten = [
-        { bild: "empty.png", titel: "Malachite", untertitel: "These malachite watch dials stand out with their rich green tones and naturally formed veining,  The stone’s organic patterns catch the eye and give the watch a refined, distinctive character. malachite adds a bold yet timeless elegance. Each dial becomes a striking visual signature." },
-        { bild: "empty.png", titel: "Aventurine", untertitel: "These aventurine watch dials captivate with their deep, rich tones and delicate sparkling inclusions. The stone’s subtle shimmer adds depth and a refined sense of texture to the dial. " },
-        { bild: "empty.png", titel: "Tigereye", untertitel: "These tiger’s eye watch dials are distinguished by their warm golden-brown hues and shimmering, striated patterns. The stone’s natural chatoyancy creates a subtle play of light that enhances the depth of the dial." },
-        { bild: "empty.png", titel: "Falcon eye", untertitel: "Blue Quartz Variant" },
-        { bild: "empty.png", titel: "Pink agate", untertitel: "Natural Banded Stone" },         
-        { bild: "empty.png", titel: "Pheonix lapis lazuli", untertitel: "Celestial Blue" }
+    // Watch Slider Logic
+    const uhrenDaten = [
+      { bild: "phoenix.png", titel: "Malachite", untertitel: "These malachite watch dials stand out with their rich green tones and naturally formed veining. The stone’s organic patterns give the watch a refined, distinctive character." },
+      { bild: "aventurine.png", titel: "Aventurine", untertitel: "These aventurine watch dials captivate with their deep, rich tones and delicate sparkling inclusions. The stone’s subtle shimmer adds depth." },
+      { bild: "tigereye.png", titel: "Tigereye", untertitel: "Warm golden-brown hues and shimmering, striated patterns. The stone’s natural chatoyancy creates a subtle play of light." }
     ];
 
     let index = 0;
 
     function updateAnzeige() {
-        const bildElement = document.getElementById('aktuelle-uhr');
-        const titelElement = document.getElementById('uhr-titel');
-        const untertitelElement = document.getElementById('uhr-untertitel');
+      const bild = document.getElementById('aktuelle-uhr');
+      const titel = document.getElementById('uhr-titel');
+      const unter = document.getElementById('uhr-untertitel');
 
-        // Sanfter Übergang
-        bildElement.style.opacity = "0";
-        bildElement.style.transform = "scale(0.8)";
-        untertitelElement.style.opacity = "0";
-        
-        setTimeout(() => {
-            bildElement.src = uhrenDaten[index].bild;
-            titelElement.innerText = uhrenDaten[index].titel;
-            untertitelElement.innerText = uhrenDaten[index].untertitel;
-            bildElement.style.opacity = "1";
-            bildElement.style.transform = "scale(1)";
-            untertitelElement.style.opacity = "0.7";
-          }, 300);
+      gsap.to([bild, titel, unter], { opacity: 0, y: 10, duration: 0.3, onComplete: () => {
+        bild.src = uhrenDaten[index].bild;
+        titel.innerText = uhrenDaten[index].titel;
+        unter.innerText = uhrenDaten[index].untertitel;
+        gsap.to([bild, titel, unter], { opacity: 1, y: 0, duration: 0.4, stagger: 0.1 });
+      }});
     }
 
-    function naechsteUhr() {
-        index = (index + 1) % uhrenDaten.length; // Springt am Ende zu 0
-        updateAnzeige();
-    }
-
-    function vorherigeUhr() {
-        index = (index - 1 + uhrenDaten.length) % uhrenDaten.length; // Springt am Anfang zum letzten
-        updateAnzeige();
-    }
-
+    function naechsteUhr() { index = (index + 1) % uhrenDaten.length; updateAnzeige(); }
+    function vorherigeUhr() { index = (index - 1 + uhrenDaten.length) % uhrenDaten.length; updateAnzeige(); }
+    
+    // Initialer Aufruf
+    updateAnzeige();
   </script>
 </body>
 </html>
